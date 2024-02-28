@@ -1,4 +1,4 @@
-d:\CODE_PROJECTS\Web_Development\TheBLOGSPOsT\src\pages\NewPost.jsxexport async function getPosts1() {
+export async function getPosts1() {
   const res = await fetch("https://blogspostbackend.onrender.com/posts1");
   const resData = await res.json();
   if (!res.ok) throw new Error("Failed to fetch Posts");
