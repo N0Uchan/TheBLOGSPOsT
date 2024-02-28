@@ -13,7 +13,7 @@ import PostById from './pages/PostById';
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/TheBLOGSPOsT',
     element : <RootLayout />,
     errorElement: <ErrorPage />,
     children : [
@@ -22,7 +22,7 @@ const router = createBrowserRouter([
     ]
   } ,
   { 
-    path : '/home',
+    path : 'TheBLOGSPOsT/home',
     element : <UserHome />,
     errorElement  : <ErrorPage2 />,
     children : [
