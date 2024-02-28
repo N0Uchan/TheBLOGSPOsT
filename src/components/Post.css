@@ -1,0 +1,36 @@
+
+#postx{
+    border: .1dvh solid #ffffff;
+    border-radius: 1dvh;
+    padding: 0dvh 1dvw ;
+    width: 38dvw;   
+    margin: 0;
+    margin-bottom: 2dvh ;
+}
+
+.postTitle{
+    margin: 1dvh;
+}
+
+.postImg{
+    width: 37dvw;
+    margin: 1dvh;
+
+}
+
+.details{
+    margin-top: 1dvh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.detailsH{
+    margin: 0;
+    padding: 0;
+}
+
+.detailsP{
+    margin-bottom: 3dvh;
+}
+
