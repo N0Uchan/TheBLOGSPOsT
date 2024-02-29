@@ -19,16 +19,30 @@ export async function getPosts(page) {
   return resData;
 }
 
+export async function postUserInfo(credential) {
+
+  const res = await fetch("https://blogspostbackend.onrender.com/loginUser", {
+      method: "POST",
+      headers: {
+      "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ credential: credential }),
+  });
+  const resUserData = await res.json();
+  if (!res.ok) throw new Error("Failed to post post");
+  return resUserData;
+}
+
 // export async function postLeaderboard(name, time) {
 
-//     const res = await fetch("https://blogspostbackend.onrender.com", {
-//         method: "POST",
-//         headers: {
-//         "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify({ "name":name , "time":time }),
-//     });
-//     const resData = await res.json();
-//     if (!res.ok) throw new Error("Failed to post post");
-//     return resData.msg;
+//   const res = await fetch("https://blogspostbackend.onrender.com", {
+//       method: "POST",
+//       headers: {
+//       "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify({ "name":name , "time":time }),
+//   });
+//   const resData = await res.json();
+//   if (!res.ok) throw new Error("Failed to post post");
+//   return resData.msg;
 // }

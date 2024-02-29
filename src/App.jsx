@@ -10,25 +10,28 @@ import Posts from './pages/Posts';
 import NewPost from './pages/NewPost'
 import UserPosts from './pages/UserPosts';
 import PostById from './pages/PostById';
+import UserDetailsContextProvider from './components/userDetailsContextProvider';
 
 export default function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<RootLayout />}>
-          <Route index element={<Welcome />} />
-          <Route path="signIn" element={<SignIn />} />
-          <Route path="home" element={<UserHome />}>
-            <Route index element={<Home />} />
-            <Route path="posts" element={<Posts />} />
-            <Route path="posts/post/:id" element={<PostById />} />
-            <Route path="newPost" element={<NewPost />} />
-            <Route path="posted" element={<UserPosts />} />
+    <UserDetailsContextProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<RootLayout />}>
+            <Route index element={<Welcome />} />
+            <Route path="signIn" element={<SignIn />} />
+            <Route path="home" element={<UserHome />}>
+              <Route index element={<Home />} />
+              <Route path="posts" element={<Posts />} />
+              <Route path="posts/post/:id" element={<PostById />} />
+              <Route path="newPost" element={<NewPost />} />
+              <Route path="posted" element={<UserPosts />} />
+            </Route>
           </Route>
-        </Route>
-        <Route path="*" element={<ErrorPage />} />
-      </Routes>
-    </Router>
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+      </Router>
+    </UserDetailsContextProvider>
   );
 }
 
