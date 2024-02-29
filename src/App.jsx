@@ -15,7 +15,7 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/TheBLOGSPOsT" element={<RootLayout />}>
+        <Route path="/" element={<RootLayout />}>
           <Route index element={<Welcome />} />
           <Route path="signIn" element={<SignIn />} />
           <Route path="home" element={<UserHome />}>

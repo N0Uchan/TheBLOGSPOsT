@@ -8,7 +8,7 @@ export default function Nav() {
                 
                  <NavLink className="NavLinks" to="posts" end>Posts</NavLink> 
                  <NavLink className="NavLinks" to="newPost" end>New Post</NavLink> 
-                <NavLink id="navIcon" className="" to="/TheBLOGSPOsT/home" end >Icon</NavLink>
+                <NavLink id="navIcon" className="" to="/home" end >Icon</NavLink>
                  <NavLink className="NavLinks" to="posted" end >Your Posts</NavLink> 
                                
             </ul>
