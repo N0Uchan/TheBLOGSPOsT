@@ -5,10 +5,16 @@ import { getPosts } from "../assets/httpReq.js";
 import './css/HomeAndPosts.css'
 
 export default function Posts() {
-    const [postState, setPostState] = useState({posts: [], page : 2 });
+    const [postState, setPostState] = useState({posts: [], page : 1 });
     const [isFetching, setIsFetching] = useState(true);
     const [error, setError] = useState();
+
     let BtnClass = 'pageNavBtn';
+    if (postState.page === 1) {
+      BtnClass+=' disabled';
+    }else if (BtnClass >0) {
+      BtnClass = BtnClass.replace(' disabled', '');
+    }
 
     useEffect(() => {
         fetchPosts();
@@ -36,11 +42,6 @@ export default function Posts() {
       function changePage(num){
         setPostState((prev)=>{
           const newPage = prev.page + num;
-          if (newPage === 0) {
-            BtnClass+=' disabled';
-          }else if (BtnClass >0) {
-            BtnClass = BtnClass.replace(' disabled', '');
-          }
           return { ...prev, page: newPage }
         })
       }
@@ -57,13 +58,14 @@ export default function Posts() {
                     {!isFetching && postState.posts.length > 0 && (<>
                         {postState.posts.map(post => (
                             <div key={post._id} className="postListItem"  >
-                                <Link to={`posts/${post._id}`}>
+                                <Link to={`post/${post._id}`}>
                                     <Post author={post.author} date={post.date} title={post.title} content={post.content} img={post.img} />
                                 </Link>
                             </div>
                         ))}
                     </>)}
                 </div>
+
                 <section id="pageNav">
                   <button className={BtnClass} onClick={()=>changePage(-1)} >{'<'}</button>
                   <p>{postState.page}</p>

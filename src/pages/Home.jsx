@@ -40,7 +40,7 @@ export default function Home() {
                     {!isFetching && posts1.length > 0 && (<>
                         {posts1.map(post => (
                             <div key={post._id} className="postListItem"  >
-                                <Link to={`posts/${post._id}`}>
+                                <Link to={`posts/post/${post._id}`}>
                                     <Post author={post.author} date={post.date} title={post.title} content={post.content} img={post.img} />
                                 </Link>
                             </div>

@@ -60,3 +60,9 @@
         scrollbar-color: #ffffff00 rgba(0, 0, 0, 0); 
         scrollbar-arrow-color: none;
 }
+
+
+#pageNav{
+    display: flex;
+    flex-direction: row;
+}

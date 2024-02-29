@@ -21,7 +21,7 @@ export default function App() {
           <Route path="home" element={<UserHome />}>
             <Route index element={<Home />} />
             <Route path="posts" element={<Posts />} />
-            <Route path="posts/:id" element={<PostById />} />
+            <Route path="posts/post/:id" element={<PostById />} />
             <Route path="newPost" element={<NewPost />} />
             <Route path="posted" element={<UserPosts />} />
           </Route>
