@@ -3,17 +3,25 @@ import Post from '../components/Post'
 import { useState, useEffect } from "react";
 import { getPosts } from "../assets/httpReq.js";
 import './css/HomeAndPosts.css'
+import PageNavBtns from "../components/PageNavBtns.jsx";
 
 export default function Posts() {
     const [postState, setPostState] = useState({posts: [], page : 1 });
     const [isFetching, setIsFetching] = useState(true);
     const [error, setError] = useState();
 
-    let BtnClass = 'pageNavBtn';
-    if (postState.page === 1) {
-      BtnClass+=' disabled';
-    }else if (BtnClass >0) {
-      BtnClass = BtnClass.replace(' disabled', '');
+    let prevBtnClass = 'pageNavBtn';
+    let nextBtnClass = 'pageNavBtn';
+
+    if (postState.page <= 1) {
+      prevBtnClass += ' disabled';
+    }
+    // disable the next button when there are no more pages, you can do it like this:
+    // if (postState.page >= totalNumberOfPages) {
+    //   nextBtnClass += ' disabled';
+    // }
+    else if (postState.page > 1) {
+      prevBtnClass = prevBtnClass.replace(' disabled', '');
     }
 
     useEffect(() => {
@@ -40,6 +48,7 @@ export default function Posts() {
       }
 
       function changePage(num){
+        if (postState.page + num <= 0) return;
         setPostState((prev)=>{
           const newPage = prev.page + num;
           return { ...prev, page: newPage }
@@ -50,11 +59,14 @@ export default function Posts() {
         <main className="pages PostsPage" >
             
             <section id="posts" >
-              <h1>All Posts</h1>
+              <h1 id='PostsHeader' className="PostsHeader" >All Posts</h1>
                 <div id="PostsContainer" >
+                    
+                    <PageNavBtns page={postState.page} changePage={changePage} prevBtnClass={prevBtnClass} nextBtnClass={nextBtnClass} />
+
                     {/* { error && <p>{error}fetching</p> } */}
-                    {isFetching && <p>Loading Latest Updates for You..</p>}
-                    {!isFetching && postState.posts.length === 0 && <p>No Posts Available</p>}
+                    {isFetching && <p >Loading Latest Updates for You..</p>}
+                    {!isFetching && postState.posts.length === 0 && <p id="noMorePosts" >No Posts Available</p>}
                     {!isFetching && postState.posts.length > 0 && (<>
                         {postState.posts.map(post => (
                             <div key={post._id} className="postListItem"  >
@@ -64,13 +76,10 @@ export default function Posts() {
                             </div>
                         ))}
                     </>)}
-                </div>
 
-                <section id="pageNav">
-                  <button className={BtnClass} onClick={()=>changePage(-1)} >{'<'}</button>
-                  <p>{postState.page}</p>
-                  <button onClick={()=>changePage(1)} >{'>'}</button>
-                </section>
+                    <PageNavBtns page={postState.page} changePage={changePage} prevBtnClass={prevBtnClass} nextBtnClass={nextBtnClass} />
+
+                </div>
             </section>
 
             <section id="sideBox" >

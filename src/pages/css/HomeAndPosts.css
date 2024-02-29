@@ -20,6 +20,10 @@
 #PostsHeader{
     text-align: center;
 }
+.PostsHeader{
+    margin-left: 8dvw;
+    margin-bottom: 0dvh;
+}
 
 #allPostsBtn{
     text-align: center;
@@ -39,6 +43,10 @@
     border: .1dvh solid #ffffff;
     border-radius: 1dvh;
     
+}
+
+#noMorePosts{
+    text-align: center;
 }
 
 /* ScrollBar */
@@ -62,7 +70,3 @@
 }
 
 
-#pageNav{
-    display: flex;
-    flex-direction: row;
-}

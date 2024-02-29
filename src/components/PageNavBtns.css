@@ -1,0 +1,39 @@
+#pageNav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-left: 2dvw;
+}
+
+.pageNavBtn{
+    margin: 1dvw;
+    padding: 1dvw;
+    border: .1dvh solid #ffffff;
+    border-radius: 1dvh;
+    background-color: #ffffff;
+    color: #000000;
+    text-align: center;
+    cursor: pointer;
+    width: 5dvw;
+    font-weight: 700;
+    font-size: 3dvh;
+}
+
+#pageNo{
+    margin: 1dvw;
+    padding: 1dvw;
+    border: .1dvh solid #ffffff;
+    border-radius: 1dvh;
+    background-color: none;
+    color: #6bfce4;
+    text-align: center;
+    width: 5dvw;    
+    font-weight: 700;
+    font-size: 2.5dvh;
+}
+
+.disabled {
+    background-color: #000000;
+    color: #ffffff;
+    cursor: not-allowed;
+}

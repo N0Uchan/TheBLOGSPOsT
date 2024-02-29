@@ -34,7 +34,7 @@ export default function Home() {
             <section id="posts" >
                 
                 <div id="PostsContainer" >
-                <h2 id='PostsHeader'  >Latest Updates</h2>
+                <h1 id='PostsHeader'  >Latest Updates</h1>
                     {isFetching && <p>Loading Latest Updates for You..</p>}
                     {!isFetching && posts1.length === 0 && <p>No Posts Available</p>}
                     {!isFetching && posts1.length > 0 && (<>
