@@ -6,9 +6,16 @@ export async function getPosts1() {
 }
 
 export async function getPost(id) {
-  const res = await fetch(`https://blogspostbackend.onrender.com/posts/${id}`);
+  const res = await fetch(`https://blogspostbackend.onrender.com//posts/id/${id}`);
   const resData = await res.json();
   if (!res.ok) throw new Error("Failed to fetch Post");
+  return resData;
+}
+
+export async function getPosts(page) {
+  const res = await fetch(`https://blogspostbackend.onrender.com/posts/page/${page}`);
+  const resData = await res.json();
+  if (!res.ok) throw new Error("Failed to fetch Posts");
   return resData;
 }
 

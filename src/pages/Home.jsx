@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import './css/Home.css'
+import './css/HomeAndPosts.css'
 import Post from '../components/Post'
 import { useState, useEffect } from "react";
 import { getPosts1 } from "../assets/httpReq.js";
@@ -30,11 +30,11 @@ export default function Home() {
       }
 
     return (
-        <main className="pages" id="HomePage" >
+        <main className="pages PostsPage"  >
             <section id="posts" >
                 
-                <div id="homePostsContainer" >
-                <h2 id='HomePostsHeader' >Latest Updates</h2>
+                <div id="PostsContainer" >
+                <h2 id='PostsHeader'  >Latest Updates</h2>
                     {isFetching && <p>Loading Latest Updates for You..</p>}
                     {!isFetching && posts1.length === 0 && <p>No Posts Available</p>}
                     {!isFetching && posts1.length > 0 && (<>
@@ -46,6 +46,7 @@ export default function Home() {
                             </div>
                         ))}
                     </>)}
+                  <Link to="posts" id="allPostsBtn" >See More Posts</Link>
                 </div>
             </section>
 
