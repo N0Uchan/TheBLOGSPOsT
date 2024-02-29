@@ -59,7 +59,11 @@ export default function Posts() {
         <main className="pages PostsPage" >
             
             <section id="posts" >
-              <h1 id='PostsHeader' className="PostsHeader" >All Posts</h1>
+              
+                <div className="headerItems" >
+                  <h1 id='PostsHeader' className="PostsHeader" >All Posts</h1>
+                  <button className="refreshBtn" onClick={refreshPosts} >RefIcon</button>
+                </div>
                 <div id="PostsContainer" >
                     
                     <PageNavBtns page={postState.page} changePage={changePage} prevBtnClass={prevBtnClass} nextBtnClass={nextBtnClass} />

@@ -17,6 +17,29 @@
     justify-content: center;  
 }
 
+.headerItems{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 2dvh;
+}
+
+.refreshBtn{
+    width: 4dvw;
+    height: 3dvw;
+    border-radius: 25%;
+    padding: 1dvh 2.4dvw ;
+    background-color: #ffffff;
+    border: .1dvh solid #000000;
+    color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+
 #PostsHeader{
     text-align: center;
 }
