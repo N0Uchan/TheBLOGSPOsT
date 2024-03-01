@@ -12,6 +12,7 @@ function GoogleSignIn(){
     const authCode = response.code;
     const resUserData = await postUserInfo(authCode);    
     setUserDetails(resUserData.email,resUserData.given_name,resUserData.picture,resUserData.userPosts);
+    console.log(resUserData);
     if (resUserData.email) {      
       navigate('/home');
     }
