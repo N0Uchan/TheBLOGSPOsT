@@ -9,17 +9,16 @@ function GoogleSignIn(){
   const {setUserDetails} = useContext(userDetailsContext);
 
   async function handleLogin (response){
-    const authCode = response.code;
-    const resUserData = await postUserInfo(authCode);    
+    const credential = response.credential;
+    const resUserData = await postUserInfo(credential);     
     setUserDetails(resUserData.email,resUserData.given_name,resUserData.picture,resUserData.userPosts);
-    console.log(resUserData);
     if (resUserData.email) {      
       navigate('/home');
     }
   };
 
   function handleError (error) {
-    console.error(error);
+    console.error('error'+error);
   };
 
   return (
