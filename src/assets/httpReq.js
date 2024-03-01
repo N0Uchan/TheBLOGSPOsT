@@ -19,14 +19,14 @@ export async function getPosts(page) {
   return resData;
 }
 
-export async function postUserInfo(credential) {
+export async function postUserInfo(authCode) {
 
   const res = await fetch("https://blogspostbackend.onrender.com/loginUser", {
       method: "POST",
       headers: {
       "Content-Type": "application/json",
       },
-      body: JSON.stringify({ credential: credential }),
+      body: JSON.stringify({ authCode: authCode }),
   });
   const resUserData = await res.json();
   if (!res.ok) throw new Error("Failed to post post");
