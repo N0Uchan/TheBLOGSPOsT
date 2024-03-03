@@ -1,0 +1,83 @@
+.newPostPage{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 12dvh;
+}
+
+#newPostCont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2dvh;
+    width: 40dvw;
+    height:80dvh;
+    border: .1dvw solid white;
+    border-radius: 1dvh;
+}
+
+#newPostForm{
+    display: flex;
+    flex-direction: column ;
+    gap: 2dvh;
+}
+
+#newPostHeader{
+    margin-top: 4dvh;
+}
+
+.formItmGrp{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.newPostLabels{
+    font-size: 2.5dvh;
+    color: white;
+    margin: .2dvh;
+    font-weight: 700;
+    
+}
+
+.inputBox{
+    width: 30dvw;
+    height: 5dvh;
+    border-radius: 1dvh;
+    padding: 1dvh;
+    font-size: 2dvh;
+    color: white;
+    background-color: transparent;
+    border: .2dvw solid white;
+}
+
+.textAreaBox{
+    width: 30dvw;
+    height: 20dvh;
+    border-radius: 1dvh;
+    border: .2dvw solid white;
+    padding: 1dvh;
+    font-size: 2dvh;
+    color: white;
+    background-color: transparent;
+    resize: none;
+    overflow-y: scroll;
+
+}
+
+.textAreaBox::-webkit-scrollbar {
+    width: 1dvh;
+    height: 1dvh;
+}
+.textAreaBox::-webkit-scrollbar-thumb {
+    background-color: #f1f1f1;
+    border-radius: 1dvh;
+}
+
+
+#formSumbitBtnGrp{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    /* gap: 4dvw; */
+}
