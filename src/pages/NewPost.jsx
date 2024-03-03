@@ -17,9 +17,9 @@ export default function NewPost() {
         const content = contentRef.current.value;
         if (title.length > 3 && content.length > 0 ){
             createNewPost(userDetails.email,title,content).then((res)=>{
-                console.log(res);
+                // console.log(res);
             }).catch((err)=>{
-                console.log(err);
+                // console.log(err);
             })
         }else{
             console.log("Invalid Input");
