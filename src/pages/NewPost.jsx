@@ -10,13 +10,14 @@ export default function NewPost() {
     const titleRef = useRef();
     const imgRef = useRef();
     const contentRef = useRef();
-
+    const author = userDetails.given_name ; // given name
+    const email = userDetails.email;
     function submitNewPost(){
         const title = titleRef.current.value;
         // const img = imgRef.current.value;    IMAGE LATER DONT FORGETTTT
         const content = contentRef.current.value;
         if (title.length > 3 && content.length > 0 ){
-            createNewPost(userDetails.email,title,content).then((res)=>{
+            createNewPost(email,title,content,author).then((res)=>{
                 // console.log(res);
             }).catch((err)=>{
                 // console.log(err);

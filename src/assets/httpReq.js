@@ -20,7 +20,7 @@ export async function getPosts(page) {
 }
 
 export async function postUserInfo(credential) {
-    console.log(credential);
+    
   const res = await fetch("https://blogspostbackend.onrender.com/loginUser", {
       method: "POST",
       headers: {
@@ -33,7 +33,7 @@ export async function postUserInfo(credential) {
   return resUserData;
 }
 
-export async function createNewPost(email,title,content) {
+export async function createNewPost(email,title,content,author) {
   const res = await fetch("https://blogspostbackend.onrender.com/newPost", {
       method: "POST",
       headers: {

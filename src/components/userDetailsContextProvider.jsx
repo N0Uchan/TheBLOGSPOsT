@@ -15,7 +15,7 @@ export default function UserDetailsContextProvider({ children }) {
     const oldState = JSON.parse(localStorage.getItem('userDetails'));
     const [userState,setUserState]= useState( oldState ? oldState :{
         email :'',
-        given_Name:'',
+        given_name:'',
         picture :'',
         userPosts:[] ,
         loggedIn: false,
