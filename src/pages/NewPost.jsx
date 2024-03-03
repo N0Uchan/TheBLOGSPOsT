@@ -1,7 +1,31 @@
 import { Link } from "react-router-dom"
 import './css/NewPost.css'
+import { useRef , useContext } from "react"
+import { createNewPost } from "../assets/httpReq.js"
+import { userDetailsContext } from "../components/userDetailsContextProvider.jsx"
+
 
 export default function NewPost() {
+    const userDetails = useContext(userDetailsContext);
+    const titleRef = useRef();
+    const imgRef = useRef();
+    const contentRef = useRef();
+
+    function submitNewPost(){
+        const title = titleRef.current.value;
+        // const img = imgRef.current.value;    IMAGE LATER DONT FORGETTTT
+        const content = contentRef.current.value;
+        if (title.length > 3 && content.length > 0 ){
+            createNewPost(userDetails.email,title,content).then((res)=>{
+                console.log(res);
+            }).catch((err)=>{
+                console.log(err);
+            })
+        }else{
+            console.log("Invalid Input");
+        }
+    }
+
 
     return ( 
         <main className="pages newPostPage" >
@@ -11,22 +35,24 @@ export default function NewPost() {
                 
                 <div className="formItmGrp" >
                     <label htmlFor="title" className="newPostLabels">Title</label>
-                    <input type="text" className="inputBox" />
+                    <input type="text" className="inputBox" 
+                           ref={titleRef}      />
                 </div>
 
                 <div className="formItmGrp">
                     <label htmlFor="image" className="newPostLabels">Image</label>
-                    <input type="file" className="inputBox" accept="image/*" />
+                    <input type="file" className="inputBox" accept="image/*"
+                            ref={imgRef} />
                 </div>
 
                 <div className="formItmGrp" >
                     <label htmlFor="content" className="newPostLabels" >Content</label>
-                    <textarea id="" rows="5" className="textAreaBox" ></textarea>
+                    <textarea id="" rows="5" className="textAreaBox" ref={contentRef} ></textarea>
                 </div>
 
                 <div id="formSumbitBtnGrp" >
-                    <button type="">Create Post</button>
-                    <Link to=".." > Cancel </Link>
+                    <button type="button" onClick={()=>{submitNewPost()}}  >Create Post</button>
+                    <Link to=".."  > Cancel </Link>
                 </div>
                 
             </form>

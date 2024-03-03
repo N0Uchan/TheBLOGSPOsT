@@ -4,6 +4,7 @@ import Post from '../components/Post'
 import { useState, useEffect } from "react";
 import { getPosts1 } from "../assets/httpReq.js";
 
+
 export default function Home() {
     const [posts1, setPosts1] = useState([]);
     const [isFetching, setIsFetching] = useState(true);
