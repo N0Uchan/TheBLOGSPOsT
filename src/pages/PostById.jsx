@@ -27,7 +27,7 @@ export default function PostById() {
 
 
     return (
-        <main className="pages">
+        <main className="pages pageById">
             {isFetching && <p>Loading Latest Updates for You..</p>}
             {!isFetching && <Post title={post.title} author={post.author}  date={post.date} img={post.img} content={post.content}  /> }
         </main>

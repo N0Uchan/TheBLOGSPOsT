@@ -10,6 +10,7 @@ import Posts from './pages/Posts';
 import NewPost from './pages/NewPost'
 import UserPosts from './pages/UserPosts';
 import PostById from './pages/PostById';
+import UserPostById from './pages/UserPostById';
 import UserDetailsContextProvider from './components/userDetailsContextProvider';
 
 export default function App() {
@@ -24,6 +25,7 @@ export default function App() {
               <Route index element={<Home />} />
               <Route path="posts" element={<Posts />} />
               <Route path="posts/post/:id" element={<PostById />} />
+              <Route path="posted/post/:id" element={<UserPostById />} />
               <Route path="newPost" element={<NewPost />} />
               <Route path="posted" element={<UserPosts />} />
             </Route>

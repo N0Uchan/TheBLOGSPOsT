@@ -11,7 +11,7 @@ function GoogleSignIn(){
   async function handleLogin (response){
     const credential = response.credential;
     const resUserData = await postUserInfo(credential);     
-    setUserDetails({email :resUserData.email, given_name :resUserData.given_name,picture :resUserData.picture, userPosts:resUserData.userPosts});
+    setUserDetails({email :resUserData.email, author :resUserData.given_name,picture :resUserData.picture, userPosts:resUserData.userPosts , uid : resUserData._id});
     if (resUserData.email) {      
       navigate('/home');
     }

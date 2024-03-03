@@ -53,6 +53,15 @@ export async function getUserPosts(email) {
   return resData;
 }
 
+
+export async function deletePost(postId,email,uid) {
+  const res = await fetch(`https://blogspostbackend.onrender.com/deletePost?postId=${postId}&email=${email}&uid=${uid}`, {
+      method: "DELETE",
+  });
+  const resData = await res.json();
+  if (!res.ok) throw new Error("Failed to delete post");
+  return resData;
+}
 // export async function postLeaderboard(name, time) {
 
 //   const res = await fetch("https://blogspostbackend.onrender.com", {

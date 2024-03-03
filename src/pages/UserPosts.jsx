@@ -1,18 +1,23 @@
 import { Link } from "react-router-dom";
 import Post from '../components/Post'
-import { useContext } from "react";
+import { useState , useContext, useEffect } from "react";
 import { userDetailsContext } from "../components/userDetailsContextProvider.jsx";
 import { getUserPosts } from "../assets/httpReq.js";
 
 export default function UserPosts() { 
     
+    useEffect(() => {
+        refreshPosts();
+      }, []);
+
     const userDetails = useContext(userDetailsContext);
     const userPosts = userDetails.userPosts;
+    const [isFetching, setIsFetching] = useState(false);
 
     async function refreshPosts(){
-        const resNewUserPosts = await getUserPosts(userDetails.email);
-        const newUserPosts = resNewUserPosts.userPosts ;
-        userDetails.setUserDetails({userPosts:newUserPosts});
+        setIsFetching(true);
+        await userDetails.refreshUserPosts();
+        setIsFetching(false);
     }
 
 
@@ -26,6 +31,7 @@ export default function UserPosts() {
                   <button className="refreshBtn" onClick={refreshPosts} >RefIcon</button>
                 </div>
                 <div id="PostsContainer" >                
+                    {isFetching && <p>Loading Latest Updates for You..</p>}
                     {userPosts.length === 0 && <p id="noMorePosts" >No Posts Available.</p>}
                     {userPosts.length > 0 && (<>
                         {userPosts.map(post => (
@@ -46,3 +52,6 @@ export default function UserPosts() {
         </main>
     )
 }
+
+
+

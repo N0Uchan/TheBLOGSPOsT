@@ -10,7 +10,7 @@ export default function NewPost() {
     const titleRef = useRef();
     const imgRef = useRef();
     const contentRef = useRef();
-    const author = userDetails.given_name ; // given name
+    const author = userDetails.author ; // given name
     const email = userDetails.email;
     function submitNewPost(){
         const title = titleRef.current.value;

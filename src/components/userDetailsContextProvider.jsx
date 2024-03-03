@@ -1,12 +1,15 @@
 import { createContext, useState } from "react";
+import { getUserPosts } from "../assets/httpReq";
 
 export const userDetailsContext = createContext({
     email :'',
     author:'',
     picture :'',
     userPosts:[] ,
+    uid:'',
     loggedIn: false,
-    setUserDetails : ()=>{}
+    setUserDetails : ()=>{},
+    refreshUserPosts : ()=>{}
 });
 
 
@@ -18,9 +21,10 @@ export default function UserDetailsContextProvider({ children }) {
         author:'',
         picture :'',
         userPosts:[] ,
+        uid:'',
         loggedIn: false,
     });
-    function setUserDetails({ email, given_name, picture, userPosts }) {
+    function setUserDetails({ email, author, picture, userPosts }) {
         setUserState((prev) => {
           const newUserState = {
             ...prev,
@@ -28,7 +32,7 @@ export default function UserDetailsContextProvider({ children }) {
           };
       
           if (email) newUserState.email = email;
-          if (given_name) newUserState.author = given_name;
+          if (author) newUserState.author = author;
           if (picture) newUserState.picture = picture;
           if (userPosts) newUserState.userPosts = userPosts;
       
@@ -37,13 +41,28 @@ export default function UserDetailsContextProvider({ children }) {
         });
       }
 
+    async function refreshUserPosts(){
+        const resNewUserPosts = await getUserPosts(userState.email);
+        const newUserPosts = resNewUserPosts.userPosts ;
+        setUserState( (prev) => {
+            const newUserState = {
+                ...prev,
+                userPosts: newUserPosts
+            }
+            localStorage.setItem('userDetails', JSON.stringify(newUserState));
+            return newUserState;
+        });
+    }
+
     const ctxValue = {
         email : userState.email,
         author: userState.author,
         picture: userState.picture,
         loggedIn: userState.loggedIn,
         userPosts: userState.userPosts,
-        setUserDetails : setUserDetails
+        uid : userState.uid,
+        setUserDetails : setUserDetails,
+        refreshUserPosts : refreshUserPosts
     }
 
     return (
