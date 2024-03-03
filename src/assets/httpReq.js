@@ -39,11 +39,18 @@ export async function createNewPost(email,title,content,author) {
       headers: {
       "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email : email, title: title, content: content}),
+      body: JSON.stringify({ email : email, title: title, content: content, author: author}),
   });
   const resUserData = await res.json();
   if (!res.ok) throw new Error("Failed to post post");
   return resUserData;
+}
+
+export async function getUserPosts(email) {
+  const res = await fetch(`https://blogspostbackend.onrender.com/userPosts/${email}`);
+  const resData = await res.json();
+  if (!res.ok) throw new Error("Failed to fetch Posts");
+  return resData;
 }
 
 // export async function postLeaderboard(name, time) {

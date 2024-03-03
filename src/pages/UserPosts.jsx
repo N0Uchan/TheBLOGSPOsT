@@ -2,11 +2,19 @@ import { Link } from "react-router-dom";
 import Post from '../components/Post'
 import { useContext } from "react";
 import { userDetailsContext } from "../components/userDetailsContextProvider.jsx";
+import { getUserPosts } from "../assets/httpReq.js";
 
 export default function UserPosts() { 
     
     const userDetails = useContext(userDetailsContext);
     const userPosts = userDetails.userPosts;
+
+    async function refreshPosts(){
+        const resNewUserPosts = await getUserPosts(userDetails.email);
+        const newUserPosts = resNewUserPosts.userPosts ;
+        userDetails.setUserDetails({userPosts:newUserPosts});
+    }
+
 
     return (
         <main className="pages PostsPage" >
@@ -15,6 +23,7 @@ export default function UserPosts() {
               
                 <div className="headerItems" >
                   <h1 id='PostsHeader' className="PostsHeader" >User Posts</h1>
+                  <button className="refreshBtn" onClick={refreshPosts} >RefIcon</button>
                 </div>
                 <div id="PostsContainer" >                
                     {userPosts.length === 0 && <p id="noMorePosts" >No Posts Available.</p>}

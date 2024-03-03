@@ -2,7 +2,7 @@ import { createContext, useState } from "react";
 
 export const userDetailsContext = createContext({
     email :'',
-    given_name:'',
+    author:'',
     picture :'',
     userPosts:[] ,
     loggedIn: false,
@@ -15,28 +15,31 @@ export default function UserDetailsContextProvider({ children }) {
     const oldState = JSON.parse(localStorage.getItem('userDetails'));
     const [userState,setUserState]= useState( oldState ? oldState :{
         email :'',
-        given_name:'',
+        author:'',
         picture :'',
         userPosts:[] ,
         loggedIn: false,
     });
-    function setUserDetails (email,given_name,picture,userPosts){
-        setUserState((prev)=>{
-            const newUserState = {
-                email : email,
-                given_name: given_name,
-                picture: picture,
-                userPosts: userPosts,
-                loggedIn: true
-            }
-            localStorage.setItem('userDetails', JSON.stringify(newUserState));
-            return newUserState;
-        } )
-    }
+    function setUserDetails({ email, given_name, picture, userPosts }) {
+        setUserState((prev) => {
+          const newUserState = {
+            ...prev,
+            loggedIn: true
+          };
+      
+          if (email) newUserState.email = email;
+          if (given_name) newUserState.author = given_name;
+          if (picture) newUserState.picture = picture;
+          if (userPosts) newUserState.userPosts = userPosts;
+      
+          localStorage.setItem('userDetails', JSON.stringify(newUserState));
+          return newUserState;
+        });
+      }
 
     const ctxValue = {
         email : userState.email,
-        given_name: userState.given_name,
+        author: userState.author,
         picture: userState.picture,
         loggedIn: userState.loggedIn,
         userPosts: userState.userPosts,
