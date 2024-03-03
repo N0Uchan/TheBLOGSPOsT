@@ -3,9 +3,10 @@ import './css/NewPost.css'
 import { useRef , useContext } from "react"
 import { createNewPost } from "../assets/httpReq.js"
 import { userDetailsContext } from "../components/userDetailsContextProvider.jsx"
-
+import { useNavigate } from "react-router-dom"
 
 export default function NewPost() {
+    const navigate = useNavigate();
     const userDetails = useContext(userDetailsContext);
     const titleRef = useRef();
     const imgRef = useRef();
@@ -19,6 +20,7 @@ export default function NewPost() {
         if (title.length > 3 && content.length > 0 ){
             createNewPost(email,title,content,author).then((res)=>{
                 // console.log(res);
+                navigate("../posted");
             }).catch((err)=>{
                 // console.log(err);
             })

@@ -35,10 +35,9 @@ export default function UserPostById() {
   //   }
 
   async function handleDeletePost() {
-    console.log(postId);
     const postDeleted = await deletePost(postId, email , uid); 
     if (postDeleted.mssg==="User's post deleted successfully") {
-      navigate("..");
+      navigate("../posted");
       const newUserPosts = userPosts.filter((post) => post._id !== postId);
       userDetails.setUserDetails({ userPosts: newUserPosts });
     }

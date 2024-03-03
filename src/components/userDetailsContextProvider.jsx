@@ -24,7 +24,7 @@ export default function UserDetailsContextProvider({ children }) {
         uid:'',
         loggedIn: false,
     });
-    function setUserDetails({ email, author, picture, userPosts }) {
+    function setUserDetails({ email, author, picture, userPosts , uid }) {
         setUserState((prev) => {
           const newUserState = {
             ...prev,
@@ -35,6 +35,7 @@ export default function UserDetailsContextProvider({ children }) {
           if (author) newUserState.author = author;
           if (picture) newUserState.picture = picture;
           if (userPosts) newUserState.userPosts = userPosts;
+          if (uid) newUserState.uid = uid;
       
           localStorage.setItem('userDetails', JSON.stringify(newUserState));
           return newUserState;
