@@ -27,7 +27,7 @@
 }
 
 .refreshBtn{
-    border-radius: 18%;
+    border-radius: 2dvh;
     padding: 1dvh .4dvw ;
     font-size: 1dvw ;
     background-color: #ffffff;

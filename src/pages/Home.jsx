@@ -39,8 +39,8 @@ export default function Home() {
                     <h1 id='PostsHeader'  >Latest Updates</h1>
                     <button className="refreshBtn" onClick={refreshPosts1} >RefIcon</button>
                   </div>               
-                    {isFetching && <p>Loading Latest Updates for You..</p>}
-                    {!isFetching && posts1.length === 0 && <p>No Posts Available</p>}
+                    {isFetching && <p className="loadPara" >Loading Latest Updates for You..</p>}
+                    {!isFetching && posts1.length === 0 && <p className="loadPara">No Posts Available</p>}
                     {!isFetching && posts1.length > 0 && (<>
                         {posts1.map(post => (
                             <div key={post._id} className="postListItem"  >

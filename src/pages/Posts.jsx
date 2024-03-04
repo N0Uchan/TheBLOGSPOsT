@@ -69,8 +69,8 @@ export default function Posts() {
                     <PageNavBtns page={postState.page} changePage={changePage} prevBtnClass={prevBtnClass} nextBtnClass={nextBtnClass} />
 
                     {/* { error && <p>{error}fetching</p> } */}
-                    {isFetching && <p >Loading Latest Updates for You..</p>}
-                    {!isFetching && postState.posts.length === 0 && <p id="noMorePosts" >No Posts Available</p>}
+                    {isFetching && <p className="loadPara" >Loading Latest Updates for You..</p>}
+                    {!isFetching && postState.posts.length === 0 && <p className="loadPara" >No Posts Available</p>}
                     {!isFetching && postState.posts.length > 0 && (<>
                         {postState.posts.map(post => (
                             <div key={post._id} className="postListItem"  >

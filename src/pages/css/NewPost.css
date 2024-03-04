@@ -2,7 +2,11 @@
     display: flex;
     justify-content: center;
     flex-direction: row;
-    margin-top: 12dvh;
+    margin-top:8dvh;
+    padding-top: 4dvh;
+    margin-left: -1dvw;
+    width: 101dvw;
+    height: 100dvh;
 }
 
 #newPostCont{

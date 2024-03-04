@@ -39,7 +39,11 @@
 }
 
 .PostsPage{
-    background-color: #181D27;
+    background-color: #05151c;
+}
+.newPostPage{
+    background-color: #05151c;
+
 }
 body{
     background-color: #5BC0BE ;
@@ -47,11 +51,19 @@ body{
 
 #PostsHeader{
     color: #EFE9F4;
-
+}
+.loadPara{
+    color: #EFE9F4;
 }
 #postx{
     background-color: #5BC0BE;
     border: .3dvh solid #ffffff;
+}
+
+#newPostCont{
+    background-color: #5BC0BE;
+    border: .3dvh solid #ffffff;
+
 }
 
 .postImg{
