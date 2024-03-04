@@ -1,9 +1,10 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import Post from "../components/Post.jsx";
 import { useState, useEffect, useContext } from "react";
 import { userDetailsContext } from "../components/userDetailsContextProvider.jsx";
 import { deletePost } from "../assets/httpReq.js";
 import { useNavigate } from "react-router-dom";
+import "./css/PageById.css";
 
 export default function UserPostById() {
   const params = useParams();
@@ -55,11 +56,17 @@ export default function UserPostById() {
           content={post.content}
         />
 
-      <button
-        onClick={() => handleDeletePost()}
-      >
-        Delete
-      </button>
+      <section>
+        <button  id="deletePostBtn"
+          onClick={() => handleDeletePost()}
+        >
+          Delete
+        </button>
+        💀💀💀
+
+        <Link to="..">Back</Link>
+      </section>
+
     </main>
   );
 }

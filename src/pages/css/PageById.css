@@ -1,0 +1,30 @@
+
+.pageById{
+    margin-left:-.6dvw;
+    width: 100dvw;
+    height: 100dvh;
+    margin-top: 6dvh;
+    padding-top: 5dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#deletePostBtn{
+    margin-top: 2dvh;
+    margin-bottom: 2dvh;
+    padding: 1dvh;
+    background-color: #9b6e6e;
+    color: #ffffff;
+    border: none;
+    border-radius: 1dvh;
+    cursor: pointer;
+}
+
+#deletePostBtn:hover{
+    background-color: #bc2020;
+}
+
+#deletePostBtn:active{
+    background-color: #8AA1B1;
+}
