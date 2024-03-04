@@ -7,13 +7,13 @@
 
 #navCont{
     /* background-color: #BCD3F2; */
-    background-color: #9AC2C9;
+    background-color: #0c5f7f;
     box-shadow: 0dvh .2dvh .3dvh #718a8f;
 }
 
 .NavLinks{
     /* color: #8e4bdf; */
-    color: #636d63;
+    color: #afbcaf;
     border-left: .3dvh solid #a793c0;
 }
 .NavLinks:hover{
@@ -26,8 +26,9 @@
 }
 
 
+
 #navIcon{
-    color: #636d63;
+    color: #dae1ed;
     border-radius: 2dvh;
     /* background-color: #1cded1 ; */
 }
@@ -37,6 +38,10 @@
 #navIcon.active{
     color: #000;
 }
+
+
+/*     ____________________       */
+
 
 .PostsPage{
     background-color: #05151c;
@@ -50,6 +55,11 @@
 body{
     background-color: #5BC0BE ;
 }
+
+
+/* _______________________________________ */
+
+
 
 #PostsHeader{
     color: #EFE9F4;
