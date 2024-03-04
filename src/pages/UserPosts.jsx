@@ -31,7 +31,7 @@ export default function UserPosts() {
                   <button className="refreshBtn" onClick={refreshPosts} >RefIcon</button>
                 </div>
                 <div id="PostsContainer" >                
-                    {isFetching && <p>Loading Latest Updates for You..</p>}
+                    {isFetching && <p className="loadPara">Loading Latest Updates for You..</p>}
                     {userPosts.length === 0 && <p id="noMorePosts" >No Posts Available.</p>}
                     {userPosts.length > 0 && (<>
                         {userPosts.map(post => (
