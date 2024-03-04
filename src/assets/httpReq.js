@@ -33,13 +33,13 @@ export async function postUserInfo(credential) {
   return resUserData;
 }
 
-export async function createNewPost(email,title,content,author) {
+export async function createNewPost(email,title,content,author,uid) {
   const res = await fetch("https://blogspostbackend.onrender.com/newPost", {
       method: "POST",
       headers: {
       "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email : email, title: title, content: content, author: author}),
+      body: JSON.stringify({ email : email, title: title, content: content, author: author, uid : uid}),
   });
   const resUserData = await res.json();
   if (!res.ok) throw new Error("Failed to post post");
