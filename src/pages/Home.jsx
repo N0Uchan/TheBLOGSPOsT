@@ -38,9 +38,7 @@ export default function Home() {
                   <div className="headerItems" >
                     <h1 id='PostsHeader'  >Latest Updates</h1>
                     <button className="refreshBtn" onClick={refreshPosts1} >RefIcon</button>
-                  </div>
-                  <h2>ADD UID CHECK FOR CREATE POST</h2>
-                
+                  </div>               
                     {isFetching && <p>Loading Latest Updates for You..</p>}
                     {!isFetching && posts1.length === 0 && <p>No Posts Available</p>}
                     {!isFetching && posts1.length > 0 && (<>
