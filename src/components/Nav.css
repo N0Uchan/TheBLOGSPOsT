@@ -5,8 +5,6 @@
     width: 96dvw;
     margin: 0;
     padding: 0dvh 2dvw;
-    background-color: #95d5fd;
-    box-shadow: 0dvh .5dvh .5dvh rgba(0,0,0,1);
     position: fixed;
     top: 0;
     left: 0;
@@ -26,37 +24,19 @@
     gap: 0dvh;
 }
 
-#navIcon{
-    font-size: 2dvh;
-    color: #ffffff;
-    cursor: pointer;
-    margin-right: 2dvh;
-}
-
 .NavLinks{
     font-size: 2.5dvh;
-    color: #fff;
     margin-top: 0dvh;
     padding: 1dvh 4dvh;
     cursor: pointer; 
     border-radius: 1dvh;
-    border-left: .3dvh solid #ffffff;
     transition: .3s;
 }
 
-.NavLinks.active{
-    color: #000;
-    background-color: #2afff1;
-}
-
-.NavLinks:hover{
-    color: #000;
-    background-color: #52bdff ;
-}
-
 #navIcon{
+    cursor: pointer;
+    margin-right: 2dvh;
     font-size: 2.5dvh;
-    color: #fff;
     margin-top: 0dvh;
     padding: 1dvh 4dvh;
     cursor: pointer; 

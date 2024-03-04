@@ -1,1 +1,39 @@
 
+/* .default#html{
+
+} */
+
+#navCont{
+    background-color: #afffe4;
+    box-shadow: 0dvh .5dvh 1dvh rgb(127, 167, 149);
+}
+
+.NavLinks{
+    color: #8e4bdf;
+    border-left: .3dvh solid #a793c0;
+}
+.NavLinks.active{
+    color: #000;
+    background-color: #1cded1;
+}
+.NavLinks:hover{
+    color: #000;
+    background-color: #57ed98 ;
+}
+
+#navIcon{
+    color: #9203cf;
+    border-radius: 2dvh;
+    background-color: #1cded1 ;
+}
+#navIcon:hover{
+    color: #000;
+}
+#navIcon.active{
+    color: #000;
+}
+
+
+.PostsPage{
+    background-color: black;
+}
