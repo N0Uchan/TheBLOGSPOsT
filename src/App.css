@@ -13,7 +13,7 @@
 
 .NavLinks{
     /* color: #8e4bdf; */
-    color: #afbcaf;
+    color: #d6e4d6;
 }
 .NavLinks:hover{
     color: #000;
@@ -27,7 +27,7 @@
 
 
 #navIcon{
-    color: #dae1ed;
+    color: #b7c9b7;
     border-radius: 2dvh;
     /* background-color: #1cded1 ; */
 }
