@@ -29,9 +29,10 @@
     margin-top: 0dvh;
     padding: 1dvh 4dvh;
     cursor: pointer; 
-    border-radius: 1dvh;
-    transition: .3s;
+    border-radius: 2dvh;
+    transition: .4s;
 }
+
 
 #navIcon{
     cursor: pointer;

@@ -14,13 +14,12 @@
 .NavLinks{
     /* color: #8e4bdf; */
     color: #afbcaf;
-    border-left: .3dvh solid #a793c0;
 }
 .NavLinks:hover{
     color: #000;
     background-color: #8AA1B1 ;
 }
-.NavLinks.active{
+.NavLinks.active {
     color: #fff;
     background-color: #637480;
 }
