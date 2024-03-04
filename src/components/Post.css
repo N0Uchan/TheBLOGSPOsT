@@ -1,8 +1,7 @@
 
 #postx{
-    border: .1dvh solid #ffffff;
-    border-radius: 1dvh;
-    padding: 0dvh 1dvw ;
+    border-radius: 5dvh;
+    padding: 0.5dvh 2dvw ;
     width: 38dvw;   
     margin: 0;
     margin-bottom: 2dvh ;
@@ -15,7 +14,7 @@
 .postImg{
     width: 37dvw;
     margin: 1dvh;
-
+    border-radius: 2dvh;
 }
 
 .details{

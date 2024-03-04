@@ -3,28 +3,33 @@
 
 } */
 
+
+
 #navCont{
-    background-color: #afffe4;
-    box-shadow: 0dvh .5dvh 1dvh rgb(127, 167, 149);
+    /* background-color: #BCD3F2; */
+    background-color: #9AC2C9;
+    box-shadow: 0dvh .2dvh .3dvh #718a8f;
 }
 
 .NavLinks{
-    color: #8e4bdf;
+    /* color: #8e4bdf; */
+    color: #636d63;
     border-left: .3dvh solid #a793c0;
-}
-.NavLinks.active{
-    color: #000;
-    background-color: #1cded1;
 }
 .NavLinks:hover{
     color: #000;
-    background-color: #57ed98 ;
+    background-color: #8AA1B1 ;
+}
+.NavLinks.active{
+    color: #fff;
+    background-color: #637480;
 }
 
+
 #navIcon{
-    color: #9203cf;
+    color: #636d63;
     border-radius: 2dvh;
-    background-color: #1cded1 ;
+    /* background-color: #1cded1 ; */
 }
 #navIcon:hover{
     color: #000;
@@ -34,5 +39,25 @@
 }
 
 .PostsPage{
-    background-color: black;
+    background-color: #181D27;
+}
+body{
+    background-color: #5BC0BE ;
+}
+
+#PostsHeader{
+    color: #EFE9F4;
+
+}
+#postx{
+    background-color: #5BC0BE;
+    border: .3dvh solid #ffffff;
+}
+
+.postImg{
+    border: .3dvh solid #ffffff;
+}
+
+.innTextColor{
+    color: #EFE9F4;
 }
