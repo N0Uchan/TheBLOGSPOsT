@@ -55,7 +55,8 @@ export default function Home() {
             </section>
 
             <section id="sideBox" >
-                
+              <p style={{color: "white"}} >New Feature</p>
+              <p style={{color: "white"}} >To Be Added Soon</p>
             </section>
         </main>
     )

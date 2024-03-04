@@ -42,7 +42,3 @@
     cursor: pointer; 
     transition: .3s;
 }
-
-#navIcon.active{
-    color: #000;
-}
