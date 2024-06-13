@@ -99,7 +99,6 @@ export default function NewPost() {
         const title = titleRef.current.value.trim();
         const content = contentRef.current.value.trim();
         const img64 = image;   
-        console.log(img64);
         if (title.length > 3 && content.length > 0 && img64) {
             createNewPost(email,title,content,author,uid,img64).then((res)=>{
                 // console.log(res);
