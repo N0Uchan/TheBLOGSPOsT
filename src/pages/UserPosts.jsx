@@ -37,7 +37,7 @@ export default function UserPosts() {
                         {userPosts.map(post => (
                             <div key={post._id} className="postListItem"  >
                                 <Link to={`post/${post._id}`}>
-                                    <Post author={post.author} date={post.date} title={post.title} content={post.content} img={post.img} />
+                                    <Post author={post.author} date={post.date} title={post.title} content={post.content} img64={post.img64} />
                                 </Link>
                             </div>
                         ))}

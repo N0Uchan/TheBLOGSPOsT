@@ -29,7 +29,7 @@ export default function PostById() {
     return (
         <main className="pages pageById">
             {isFetching && <p className="loadPara">Loading Latest Updates for You..</p>}
-            {!isFetching && <Post title={post.title} author={post.author}  date={post.date} img={post.img} content={post.content}  /> }
+            {!isFetching && <Post title={post.title} author={post.author}  date={post.date} img64={post.img64} content={post.content}  /> }
             <Link to="..">Back</Link>
         </main>
     )

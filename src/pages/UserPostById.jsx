@@ -52,7 +52,7 @@ export default function UserPostById() {
           title={post.title}
           author={post.author}
           date={post.date}
-          img={post.img}
+          img64={post.img64}
           content={post.content}
         />
 
