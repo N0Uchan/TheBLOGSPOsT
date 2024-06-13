@@ -28,7 +28,7 @@ export default function UserPosts() {
               
                 <div className="headerItems" >
                   <h1 id='PostsHeader' className="PostsHeader" >User Posts</h1>
-                  <button className="refreshBtn" onClick={refreshPosts} >RefIcon</button>
+                  <button className="refreshBtn" onClick={refreshPosts} >Refresh</button>
                 </div>
                 <div id="PostsContainer" >                
                     {isFetching && <p className="loadPara">Loading Latest Updates for You..</p>}

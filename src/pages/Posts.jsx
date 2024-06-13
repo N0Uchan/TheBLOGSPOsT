@@ -62,7 +62,7 @@ export default function Posts() {
               
                 <div className="headerItems" >
                   <h1 id='PostsHeader' className="PostsHeader" >All Posts</h1>
-                  <button className="refreshBtn" onClick={refreshPosts} >RefIcon</button>
+                  <button className="refreshBtn" onClick={refreshPosts} >Refresh</button>
                 </div>
                 <div id="PostsContainer" >
                     

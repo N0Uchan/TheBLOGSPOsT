@@ -37,7 +37,7 @@ export default function Home() {
                 <div id="PostsContainer" >
                   <div className="headerItems" >
                     <h1 id='PostsHeader'  >Latest Updates</h1>
-                    <button className="refreshBtn" onClick={refreshPosts1} >RefIcon</button>
+                    <button className="refreshBtn" onClick={refreshPosts1} >Refresh</button>
                   </div>               
                     {isFetching && <p className="loadPara" >Loading Latest Updates for You..</p>}
                     {!isFetching && posts1.length === 0 && <p className="loadPara">No Posts Available</p>}
