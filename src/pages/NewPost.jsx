@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom"
 import { useState } from "react"; 
 
 export default function NewPost() {
-    const [Image,setImage] = useState("");
+    const [image,setImage] = useState("");
     const navigate = useNavigate();
     const userDetails = useContext(userDetailsContext);
     const titleRef = useRef();
@@ -19,15 +19,65 @@ export default function NewPost() {
 
     const errMsg=useRef();
     const errorMsg = <p id="errorMsg" ref={errMsg} className='' ></p>
-    function previewToBase64(e) {
-        var reader = new FileReader();
-        reader.readAsDataURL( e.target.files[0] ) ;
-        reader.onload = () =>{
-            setImage(reader.result)
-        }
-         //base64encoded string
-        reader.onerror = error=>{
-        console. log( "Error :",error);
+
+    function resizeImage(file, maxWidth, maxHeight) {
+        return new Promise((resolve, reject) => {
+            const img = new Image();
+            const reader = new FileReader();
+            
+            reader.readAsDataURL(file);
+            reader.onload = (event) => {
+                img.src = event.target.result;
+            };
+            
+            img.onload = () => {
+                const canvas = document.createElement('canvas');
+                let width = img.width;
+                let height = img.height;
+
+                if (width > height) {
+                    if (width > maxWidth) {
+                        height *= maxWidth / width;
+                        width = maxWidth;
+                    }
+                } else {
+                    if (height > maxHeight) {
+                        width *= maxHeight / height;
+                        height = maxHeight;
+                    }
+                }
+
+                canvas.width = width;
+                canvas.height = height;
+
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(img, 0, 0, width, height);
+
+                canvas.toBlob(blob => {
+                    resolve(blob);
+                }, file.type);
+            };
+
+            img.onerror = error => {
+                reject("Image resize error: " + error);
+            };
+        });
+    }
+
+    async function previewToBase64(e) {
+        try {
+            const resizedImg = await resizeImage(e.target.files[0], 800, 800); // Resize to 800x800
+            const reader = new FileReader();
+
+            reader.readAsDataURL(resizedImg);
+            reader.onload = () => {
+                setImage(reader.result);
+            };
+            reader.onerror = error => {
+                console.log("Error:", error);
+            };
+        } catch (error) {
+            console.log("Image resize error:", error);
         }
     }
 
@@ -48,7 +98,8 @@ export default function NewPost() {
     function submitNewPost(){
         const title = titleRef.current.value.trim();
         const content = contentRef.current.value.trim();
-        const img64 = Image;   
+        const img64 = image;   
+        console.log(img64);
         if (title.length > 3 && content.length > 0 && img64) {
             createNewPost(email,title,content,author,uid,img64).then((res)=>{
                 // console.log(res);
@@ -100,7 +151,7 @@ export default function NewPost() {
                             ref={imgRef} />
                             
                 </div>
-                { Image=="" || Image==null ? "No Image Selected" : <img width={100} height = {100} src={Image} /> }
+                {image=="" || image==null ? "No Image Selected" : <img width={100} height = {100} src={image} /> }
                 <div className="formItmGrp" >
                     <label htmlFor="content" className="newPostLabels" >Content</label>
                     <textarea rows="5" id="newContent" className="textAreaBox" ref={contentRef} ></textarea>
