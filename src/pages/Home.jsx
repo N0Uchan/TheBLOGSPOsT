@@ -45,7 +45,7 @@ export default function Home() {
                         {posts1.map(post => (
                             <div key={post._id} className="postListItem"  >
                                 <Link to={`posts/post/${post._id}`}>
-                                    <Post author={post.author} date={post.date} title={post.title} content={post.content} img={post.img} />
+                                    <Post author={post.author} date={post.date} title={post.title} content={post.content} img64={post.img64} />
                                 </Link>
                             </div>
                         ))}
