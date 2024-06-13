@@ -146,12 +146,15 @@ export default function NewPost() {
 
                 <div className="formItmGrp">
                     <label htmlFor="image" className="newPostLabels">Image</label>
-                    <input type="file" id="newImg" className="inputBox" accept="image/*" 
+                    <div id="imgPreview" >
+                        <input type="file" id="newImgInput" className="inputBox" accept="image/*" 
                             onChange={previewToBase64}
                             ref={imgRef} />
+                        {image=="" || image==null ? "No Image Selected" : <img width={100} height = {100} src={image} /> }
+                    </div>
                             
                 </div>
-                {image=="" || image==null ? "No Image Selected" : <img width={100} height = {100} src={image} /> }
+                
                 <div className="formItmGrp" >
                     <label htmlFor="content" className="newPostLabels" >Content</label>
                     <textarea rows="5" id="newContent" className="textAreaBox" ref={contentRef} ></textarea>

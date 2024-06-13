@@ -15,7 +15,7 @@
     align-items: center;
     gap: 2dvh;
     width: 40dvw;
-    height:80dvh;
+    height:98dvh;
     border: .1dvw solid white;
     border-radius: 1dvh;
 }
@@ -45,7 +45,7 @@
 }
 
 .inputBox{
-    width: 30dvw;
+    width: 35dvw;
     height: 5dvh;
     border-radius: 1dvh;
     padding: 1dvh;
@@ -56,7 +56,7 @@
 }
 
 .textAreaBox{
-    width: 30dvw;
+    width: 35dvw;
     height: 20dvh;
     border-radius: 1dvh;
     border: .2dvw solid white;
@@ -76,6 +76,25 @@
 .textAreaBox::-webkit-scrollbar-thumb {
     background-color: #f1f1f1;
     border-radius: 1dvh;
+}
+
+#newImgInput{
+    width : 15dvw;
+    border:none;
+}
+
+#imgPreview{
+    display: flex;
+    flex-direction: row;
+    height: 25dvh ;
+    width: 35dvw;
+    margin: 0;
+    padding: 1dvh;
+    border: .2dvw solid white;
+    border-radius: 1dvh;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1dvh;
 }
 
 
